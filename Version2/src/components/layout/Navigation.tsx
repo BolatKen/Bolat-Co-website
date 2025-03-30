@@ -22,23 +22,23 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
             <Rocket className="w-8 h-8 text-blue-500" />
-            <span className="text-xl font-bold">AmoCRM Pro</span>
+            <span className="text-xl font-bold">Bolat & Co.</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <Link to="/services" className="text-gray-300 hover:text-white transition-colors">
-              Services
+              Услуги
             </Link>
             <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors">
-              Portfolio
+              Партнеры
             </Link>
             <Link to="/integrations" className="text-gray-300 hover:text-white transition-colors">
-              Integrations
+              Интеграции
             </Link>
             <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
-              About
+              О нас
             </Link>
             <Button variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500/10">
-              Contact Us
+              Связь с нами
             </Button>
           </div>
         </div>

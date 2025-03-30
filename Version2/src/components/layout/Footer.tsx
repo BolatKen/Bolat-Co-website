@@ -9,58 +9,39 @@ export function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <Rocket className="w-8 h-8 text-blue-500" />
-              <span className="text-xl font-bold">AmoCRM Pro</span>
+              <span className="text-xl font-bold">Bolat & Co.</span>
             </Link>
             <p className="text-gray-400">
-              Your trusted partner in AmoCRM integration and automation.
+            Ваш надежный партнер в интеграции и автоматизации AmoCRM.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
+            <h4 className="font-semibold mb-4">Компания</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link to="/about" className="hover:text-white transition-colors">
-                  About
+                  О нас
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-white transition-colors">
-                  Careers
+                <Link to="/portfolio" className="hover:text-white transition-colors">
+                  Партнеры
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  Blog
+                  Блог
                 </Link>
               </li>
             </ul>
           </div>
+          
           <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <Link to="/docs" className="hover:text-white transition-colors">
-                  Documentation
-                </Link>
-              </li>
-              <li>
-                <Link to="/help" className="hover:text-white transition-colors">
-                  Help Center
-                </Link>
-              </li>
-              <li>
-                <Link to="/api" className="hover:text-white transition-colors">
-                  API
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
+            <h4 className="font-semibold mb-4">Контакты</h4>
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                +1 (555) 123-4567
+                +7 (706) 637-0105
               </li>
               <li className="flex items-center gap-2">
                 <MessageSquare className="w-4 h-4" />
