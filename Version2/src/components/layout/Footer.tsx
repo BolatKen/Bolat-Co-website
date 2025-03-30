@@ -48,7 +48,7 @@ export function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <a href="tel:+77066370105" className="hover:text-white transition-colors">
+                <a href="tel:+77066398062" className="hover:text-white transition-colors">
                   +7 (706) 637-0105
                 </a>
               </li>
@@ -66,7 +66,7 @@ export function Footer() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <a
-                      href="https://wa.me/77066370105"
+                      href="https://wa.me/77066398062"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-green-500 transition-colors"
@@ -83,7 +83,7 @@ export function Footer() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <a
-                      href="https://t.me/yourTelegramUsername"
+                      href="https://t.me/Rizabek_Bolat"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-blue-400 transition-colors"
