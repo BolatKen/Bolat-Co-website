@@ -1,8 +1,15 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Bot, Code, Database, LineChart, MessageSquare, Settings } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  Bot,
+  Code,
+  Database,
+  LineChart,
+  MessageSquare,
+  Settings,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export function ServicesPage() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -116,3 +123,4 @@ const services = [
     ]
   }
 ];
+

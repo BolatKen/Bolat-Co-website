@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export function PortfolioPage() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -54,14 +54,21 @@ export function PortfolioPage() {
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
+                  <h3 className="text-xl  text-gray-200 font-semibold mb-2">
+                    {study.title}
+                  </h3>
                   <p className="text-gray-400 mb-4">{study.description}</p>
                   <div className="flex justify-between items-center">
                     <div>
                       <p className="text-sm text-gray-400">Results:</p>
-                      <p className="text-lg font-semibold text-blue-400">{study.results}</p>
+                      <p className="text-lg font-semibold text-blue-400">
+                        {study.results}
+                      </p>
                     </div>
-                    <Button variant="outline" className="border-gray-700 hover:bg-gray-800">
+                    <Button
+                      variant="outline"
+                      className="border-gray-700 hover:bg-gray-800"
+                    >
                       View Case Study <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </div>
@@ -81,27 +88,31 @@ const caseStudies = [
     description: "Флористика — бизнес на эмоциях и скорости. Мы сделали так, чтобы каждая заявка из Instagram и WhatsApp попадала в систему мгновенно. Менеджеры больше не теряются в сообщениях, а букеты уходят точно в срок.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800",
     tags: ["E-commerce", "Automation"],
-    results: "150% increase in sales"
+    results: "150% increase in sales",
   },
   {
     title: "SaaS Lead Management",
     description: "Streamlining the sales process for a growing SaaS company.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800",
     tags: ["SaaS", "Lead Management"],
-    results: "3x more qualified leads"
+    results: "3x more qualified leads",
   },
   {
     title: "Real Estate Agency Transformation",
     description: "Modernizing property management and client communication.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800",
     tags: ["Real Estate", "CRM"],
-    results: "40% faster deal closure"
+    results: "40% faster deal closure",
   },
   {
     title: "Manufacturing Sales Pipeline",
-    description: "Optimizing the B2B sales process for a manufacturing company.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800",
+    description:
+      "Optimizing the B2B sales process for a manufacturing company.",
+    image:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800",
     tags: ["Manufacturing", "B2B"],
-    results: "2x pipeline efficiency"
-  }
+    results: "2x pipeline efficiency",
+  },
 ];

@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import {
   MessageSquare,
   Mail,
@@ -154,3 +154,4 @@ const integrations = [
 Ты превращаешь клиентов в стабильный доход.`
   }
 ];
+

@@ -1,15 +1,19 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Phone, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
-import.meta.env.VITE_TELEGRAM_TOKEN
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageSquare, Phone, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import.meta.env.VITE_TELEGRAM_TOKEN;
 
+interface ConsultationFormProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
 
-export function ConsultationForm() {
-  const [isOpen, setIsOpen] = useState(false);
+export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
+  //const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,17 +32,22 @@ export function ConsultationForm() {
     `;
 
     try {
-      await fetch(`https://api.telegram.org/bot${import.meta.env.VITE_TELEGRAM_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
-          text: telegramMessage,
-          parse_mode: 'Markdown',
-        }),
-      });
+      await fetch(
+        `https://api.telegram.org/bot${
+          import.meta.env.VITE_TELEGRAM_TOKEN
+        }/sendMessage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
+            text: telegramMessage,
+            parse_mode: "Markdown",
+          }),
+        }
+      );
 
       toast({
         title: "Success!",
@@ -63,7 +72,6 @@ export function ConsultationForm() {
       >
         Бесплатная консультация
       </Button>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -87,7 +95,8 @@ export function ConsultationForm() {
 
               <h2 className="text-2xl font-bold mb-4">Get Free Consultation</h2>
               <p className="text-gray-400 mb-6">
-                Fill out the form below and we'll get back to you within 24 hours.
+                Fill out the form below and we'll get back to you within 24
+                hours.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -107,7 +116,10 @@ export function ConsultationForm() {
                   className="bg-gray-800 border-gray-700"
                   required
                 />
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-700"
+                >
                   Submit
                 </Button>
 
