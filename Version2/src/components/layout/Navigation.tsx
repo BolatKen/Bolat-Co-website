@@ -93,22 +93,29 @@ export function Navigation() {
             <Link
               to="/services"
               className="block text-gray-300 hover:text-white"
+              onClick={() => setMenuOpen(false)}
             >
               Услуги
             </Link>
             <Link
               to="/portfolio"
               className="block text-gray-300 hover:text-white"
+              onClick={() => setMenuOpen(false)}
             >
               Партнеры
             </Link>
             <Link
               to="/integrations"
               className="block text-gray-300 hover:text-white"
+              onClick={() => setMenuOpen(false)}
             >
               Интеграции
             </Link>
-            <Link to="/about" className="block text-gray-300 hover:text-white">
+            <Link
+              to="/about"
+              className="block text-gray-300 hover:text-white"
+              onClick={() => setMenuOpen(false)}
+            >
               О нас
             </Link>
             <a
