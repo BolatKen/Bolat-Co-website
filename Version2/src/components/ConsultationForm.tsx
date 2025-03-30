@@ -50,15 +50,17 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
       );
 
       toast({
-        title: "Success!",
-        description: "We'll contact you shortly to schedule your consultation.",
+        title: "Успех!",
+        description:
+          "Мы свяжемся с вами в ближайшее время, чтобы договориться о вашей консультации.",
       });
       setIsOpen(false);
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
-        title: "Error!",
-        description: "Failed to send your request. Try again later.",
+        title: "Ошибка!",
+        description:
+          "Не удалось отправить ваш запрос. Попробуйте еще раз позже.",
       });
     }
   };
@@ -93,28 +95,27 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
                 <X className="w-5 h-5" />
               </button>
 
-              <h2 className="text-2xl font-bold mb-4 text-gray-200">
-                Get Free Consultation
+              <h2 className="text-2xl font-bold mb-4">
+                Получите бесплатную консультацию
               </h2>
               <p className="text-gray-400 mb-6">
-                Fill out the form below and we'll get back to you within 24
-                hours.
+                Заполните форму ниже, и мы свяжемся с вами в течение 24 часов.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <Input
-                  placeholder="Your Name"
+                  placeholder="Ваше имя"
                   className="bg-gray-800 border-gray-700"
                   required
                 />
                 <Input
                   type="tel"
-                  placeholder="Phone Number"
+                  placeholder="Ваш номер"
                   className="bg-gray-800 border-gray-700"
                   required
                 />
                 <Textarea
-                  placeholder="Your Message"
+                  placeholder="Детали"
                   className="bg-gray-800 border-gray-700"
                   required
                 />
@@ -122,7 +123,7 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700"
                 >
-                  Submit
+                  Отправить
                 </Button>
 
                 <div className="flex gap-4 mt-6">

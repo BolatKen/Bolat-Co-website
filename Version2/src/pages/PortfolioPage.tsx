@@ -16,13 +16,13 @@ export function PortfolioPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          С нами работают бизнесы, которые{' '}
+            С нами работают бизнесы, которые{' '}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
-            хотят расти
+              хотят расти
             </span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          Каждый проект — как новый бизнес-пазл. Мы разбираемся, собираем по кусочкам и включаем на максимум. Вот как мы помогли нашим партнёрам:
+            Каждый проект — как новый бизнес-пазл. Мы разбираемся, собираем по кусочкам и включаем на максимум. Вот как мы помогли нашим партнёрам:
           </p>
         </motion.div>
 
@@ -44,33 +44,26 @@ export function PortfolioPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    {study.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-xl  text-gray-200 font-semibold mb-2">
+
+                  <h3 className="text-xl text-gray-200 font-semibold mb-2">
                     {study.title}
                   </h3>
-                  <p className="text-gray-400 mb-4">{study.description}</p>
+                  <p className="text-gray-400 mb-2 whitespace-pre-line">{study.description}</p>
+                  <div className="text-sm text-gray-400 whitespace-pre-line mb-4">
+                    <strong>Что сделали:</strong>
+                    <ul className="list-disc list-inside mt-1 space-y-1">
+                      {study.steps.map((step, i) => (
+                        <li key={i}>{step}</li>
+                      ))}
+                    </ul>
+                  </div>
                   <div className="flex justify-between items-center">
                     <div>
-                      <p className="text-sm text-gray-400">Results:</p>
+                      <p className="text-sm text-gray-400">Результат:</p>
                       <p className="text-lg font-semibold text-blue-400">
                         {study.results}
                       </p>
                     </div>
-                    <Button
-                      variant="outline"
-                      className="border-gray-700 hover:bg-gray-800"
-                    >
-                      View Case Study <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
                   </div>
                 </div>
               </Card>
@@ -85,34 +78,57 @@ export function PortfolioPage() {
 const caseStudies = [
   {
     title: "Royal Flowers",
-    description: "Флористика — бизнес на эмоциях и скорости. Мы сделали так, чтобы каждая заявка из Instagram и WhatsApp попадала в систему мгновенно. Менеджеры больше не теряются в сообщениях, а букеты уходят точно в срок.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800",
-    tags: ["E-commerce", "Automation"],
-    results: "150% increase in sales",
-  },
-  {
-    title: "SaaS Lead Management",
-    description: "Streamlining the sales process for a growing SaaS company.",
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800",
-    tags: ["SaaS", "Lead Management"],
-    results: "3x more qualified leads",
-  },
-  {
-    title: "Real Estate Agency Transformation",
-    description: "Modernizing property management and client communication.",
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800",
-    tags: ["Real Estate", "CRM"],
-    results: "40% faster deal closure",
-  },
-  {
-    title: "Manufacturing Sales Pipeline",
     description:
-      "Optimizing the B2B sales process for a manufacturing company.",
+      "Флористика — бизнес на эмоциях и скорости. Мы сделали так, чтобы каждая заявка из Instagram и WhatsApp попадала в систему мгновенно. Менеджеры больше не теряются в сообщениях, а букеты уходят точно в срок.",
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800",
-    tags: ["Manufacturing", "B2B"],
-    results: "2x pipeline efficiency",
+      "https://glovo.dhmedia.io/image/stores-glovo/stores/cb11b4558321f5cf504487a36705b261e7dc1442e96863c1e27dadd538614c58?t=W3siYXV0byI6eyJxIjoibG93In19LHsicmVzaXplIjp7ImhlaWdodCI6MjI1fX1d",
+    tags: ["E-commerce", "Automation"],
+    results: "Конверсия из заявки в заказ — 70%",
+    steps: [
+      "Подключили мессенджеры и соцсети к CRM",
+      "Настроили моментальную обработку заказов",
+      "Внедрили понятную аналитику: видно, что продаётся и как быстро доставляется"
+    ]
   },
+  {
+    title: "SDU — Университет нового поколения",
+    description:
+      "Приёмная кампания — как марафон. Мы сделали так, чтобы каждый контакт с абитуриентом был под контролем. Всё общение — в одной системе, ни один запрос не теряется, а руководитель видит эффективность команды в реальном времени.",
+    image:
+      "https://www.akorda.kz/public/assets/media/uploadMedia/1693930293_222.jpg",
+    results: "+35% заявок обработано в приёмную кампанию",
+    steps: [
+      "Построили удобную воронку для приёма студентов",
+      "Интегрировали WhatsApp — общение стало быстрее",
+      "Настроили аналитику по школам, регионам, направлениям"
+    ]
+  },
+  {
+    title: "KazNU MBA",
+    description:
+      "Продажа образования — как B2С-услуга: важно быстро отреагировать, показать ценность, довести до сделки. Мы выстроили систему, где каждая заявка отслеживается, каждое касание фиксируется, и вся воронка — как на ладони.",
+    image:
+      "https://kaztag.kz/upload/iblock/54c/Snimok_ekrana_2024_02_14_v_13.27.12.png",
+    tags: ["Real Estate", "CRM"],
+    results: "Снижение стоимости заявки на 28%",
+    steps: [
+      "Внедрили amoCRM с логикой для онлайн и офлайн заявок",
+      "Интегрировали сайт, почту и Instagram",
+      "Настроили отчёты для руководства — понятно, откуда клиенты и кто их закрывает"
+    ]
+  },
+  {
+    title: "Chunky — снеки, которые продаются сами (но с CRM ещё лучше)",
+    description:
+      "Chunky — это не только розничные заказы в Instagram, но и мощный B2B-сегмент: кофейни, дистрибьюторы, партнёры. Мы настроили CRM так, чтобы периодические заказы, напоминания, оплаты и логистика работали сами.",
+    image:
+      "https://imageproxy.wolt.com/assets/6733119d0822135ce77dcdbf",
+    tags: ["Manufacturing", "B2B"],
+    results: "Повторные заказы от B2B-клиентов выросли на 50%",
+    steps: [
+      "Внедрили amoCRM под дистрибьюторский формат",
+      "Настроили цикличные закупки и авто-напоминания",
+      "Сделали систему, где продукция приходит вовремя, а клиенты заказывают снова и снова"
+    ]
+  }
 ];
