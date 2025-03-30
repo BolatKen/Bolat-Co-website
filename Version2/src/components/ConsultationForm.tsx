@@ -67,13 +67,15 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
 
   return (
     <>
-      <Button
-        size="lg"
-        className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700"
-        onClick={() => setIsOpen(true)}
-      >
-        Бесплатная консультация
-      </Button>
+      {!isOpen && (
+        <Button
+          size="lg"
+          className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700"
+          onClick={() => setIsOpen(true)}
+        >
+          Бесплатная консультация
+        </Button>
+      )}
       <AnimatePresence>
         {isOpen && (
           <motion.div
