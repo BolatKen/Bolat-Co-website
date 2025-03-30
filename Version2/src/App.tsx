@@ -10,12 +10,15 @@ import { AboutPage } from "@/pages/AboutPage";
 
 import { useState } from "react";
 
+import ScrollToTop from "@/components/ScrollToTop"; // Импортируем компонент
+
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
