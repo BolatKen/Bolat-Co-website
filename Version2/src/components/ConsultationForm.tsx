@@ -5,18 +5,53 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import.meta.env.VITE_TELEGRAM_TOKEN
+
 
 export function ConsultationForm() {
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Success!",
-      description: "We'll contact you shortly to schedule your consultation.",
-    });
-    setIsOpen(false);
+
+    const form = e.target as HTMLFormElement;
+    const name = (form[0] as HTMLInputElement).value;
+    const phone = (form[1] as HTMLInputElement).value;
+    const message = (form[2] as HTMLTextAreaElement).value;
+
+    const telegramMessage = `
+📞 *Новая заявка на консультацию!*
+👤 Имя: ${name}
+📱 Телефон: ${phone}
+💬 Сообщение: ${message}
+    `;
+
+    try {
+      await fetch(`https://api.telegram.org/bot${import.meta.env.VITE_TELEGRAM_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
+          text: telegramMessage,
+          parse_mode: 'Markdown',
+        }),
+      });
+
+      toast({
+        title: "Success!",
+        description: "We'll contact you shortly to schedule your consultation.",
+      });
+      setIsOpen(false);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error!",
+        description: "Failed to send your request. Try again later.",
+      });
+    }
   };
 
   return (
@@ -26,7 +61,7 @@ export function ConsultationForm() {
         className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700"
         onClick={() => setIsOpen(true)}
       >
-        Get Free Consultation
+        Бесплатная консультация
       </Button>
 
       <AnimatePresence>
@@ -56,28 +91,22 @@ export function ConsultationForm() {
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Input
-                    placeholder="Your Name"
-                    className="bg-gray-800 border-gray-700"
-                    required
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="tel"
-                    placeholder="Phone Number"
-                    className="bg-gray-800 border-gray-700"
-                    required
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    placeholder="Your Message"
-                    className="bg-gray-800 border-gray-700"
-                    required
-                  />
-                </div>
+                <Input
+                  placeholder="Your Name"
+                  className="bg-gray-800 border-gray-700"
+                  required
+                />
+                <Input
+                  type="tel"
+                  placeholder="Phone Number"
+                  className="bg-gray-800 border-gray-700"
+                  required
+                />
+                <Textarea
+                  placeholder="Your Message"
+                  className="bg-gray-800 border-gray-700"
+                  required
+                />
                 <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
                   Submit
                 </Button>
