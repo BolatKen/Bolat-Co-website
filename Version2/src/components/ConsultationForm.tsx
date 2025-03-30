@@ -51,14 +51,16 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
 
       toast({
         title: "Успех!",
-        description: "Мы свяжемся с вами в ближайшее время, чтобы договориться о вашей консультации.",
+        description:
+          "Мы свяжемся с вами в ближайшее время, чтобы договориться о вашей консультации.",
       });
       setIsOpen(false);
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
         title: "Ошибка!",
-        description: "Не удалось отправить ваш запрос. Попробуйте еще раз позже.",
+        description:
+          "Не удалось отправить ваш запрос. Попробуйте еще раз позже.",
       });
     }
   };
@@ -93,9 +95,11 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
                 <X className="w-5 h-5" />
               </button>
 
-              <h2 className="text-2xl font-bold mb-4">Получите бесплатную консультацию</h2>
+              <h2 className="text-2xl font-bold mb-4">
+                Получите бесплатную консультацию
+              </h2>
               <p className="text-gray-400 mb-6">
-              Заполните форму ниже, и мы свяжемся с вами в течение 24 часов.
+                Заполните форму ниже, и мы свяжемся с вами в течение 24 часов.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
