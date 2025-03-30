@@ -16,13 +16,13 @@ export function PortfolioPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Our{' '}
+          С нами работают бизнесы, которые{' '}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
-              Success Stories
+            хотят расти
             </span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Real results from real clients - see how we've helped businesses grow
+          Каждый проект — как новый бизнес-пазл. Мы разбираемся, собираем по кусочкам и включаем на максимум. Вот как мы помогли нашим партнёрам:
           </p>
         </motion.div>
 
@@ -77,8 +77,8 @@ export function PortfolioPage() {
 
 const caseStudies = [
   {
-    title: "E-commerce Revenue Growth",
-    description: "How we helped an online retailer increase sales by implementing smart automation.",
+    title: "Royal Flowers",
+    description: "Флористика — бизнес на эмоциях и скорости. Мы сделали так, чтобы каждая заявка из Instagram и WhatsApp попадала в систему мгновенно. Менеджеры больше не теряются в сообщениях, а букеты уходят точно в срок.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800",
     tags: ["E-commerce", "Automation"],
     results: "150% increase in sales"

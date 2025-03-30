@@ -16,13 +16,13 @@ export function ServicesPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Our{' '}
+            Наши{' '}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
-              Services
+              Услуги
             </span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Comprehensive AmoCRM solutions tailored to your business needs
+            Комплексные решения amoCRM, адаптированные к потребностям вашего бизнеса.
           </p>
         </motion.div>
 
@@ -39,8 +39,15 @@ export function ServicesPage() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
                   <service.icon className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-400 mb-4">{service.description}</p>
+                <h3 className="text-xl font-semibold mb-4 text-white">{service.title}</h3>
+                <ol className="list-decimal pl-5 space-y-3 text-gray-400 mb-4">
+                  {service.description.map((item, idx) => (
+                    <li key={idx}>
+                      <span className="font-medium text-white">{item.title} — </span>
+                      {item.text}
+                    </li>
+                  ))}
+                </ol>
                 <Button variant="outline" className="w-full border-gray-700 hover:bg-gray-800">
                   Learn More
                 </Button>
@@ -56,32 +63,56 @@ export function ServicesPage() {
 const services = [
   {
     icon: Settings,
-    title: "CRM Setup & Configuration",
-    description: "Custom AmoCRM setup tailored to your business processes and requirements."
+    title: "Внедрение CRM — быстро, по уму, с результатом",
+    description: [
+      {
+        title: "Разбираемся в бизнесе",
+        text: "Личное общение: встреча или созвон. Погружаемся в вашу воронку, находим, где уходят клиенты и сколько вы теряете каждый месяц. Всё честно, по цифрам."
+      },
+      {
+        title: "Строим архитектуру роста",
+        text: "Готовим чёткое ТЗ — никакой воды. Только нужные автоматизации, нужные действия и нужный результат. Вы видите, как CRM будет работать на вас с первого дня."
+      },
+      {
+        title: "Запускаем результат",
+        text: "Подписываем понятное КП, подключаем каналы, обучаем команду. CRM работает, заявки приходят, воронка дышит. Продажи растут — бизнес зарабатывает."
+      }
+    ]
   },
   {
     icon: Bot,
-    title: "Automation Solutions",
-    description: "Streamline your workflow with intelligent automation and business rules."
+    title: "Аудит CRM и продаж — найди деньги в своём бизнесе",
+    description: [
+      {
+        title: "Погружаемся в процессы",
+        text: "Созваниваемся, слушаем, как работает ваш отдел продаж, смотрим воронки, анализируем цифры. Всё строго по сути, без лирики."
+      },
+      {
+        title: "Делаем диагностику",
+        text: "Анализируем систему или её отсутствие, выявляем слабые места, фиксируем недоработки. Получаете отчёт с выводами и чёткими рекомендациями."
+      },
+      {
+        title: "Включаем рост",
+        text: "Хотите — внедряем улучшения. Не хотите — забираете план и внедряете сами. Главное: вы точно знаете, где теряли деньги и как перестать их терять."
+      }
+    ]
   },
   {
     icon: Database,
-    title: "Data Migration",
-    description: "Seamless transfer of your existing data into AmoCRM without loss."
-  },
-  {
-    icon: Code,
-    title: "Custom Integration",
-    description: "Connect AmoCRM with your existing tools and third-party services."
-  },
-  {
-    icon: MessageSquare,
-    title: "Training & Support",
-    description: "Comprehensive training and ongoing support for your team."
-  },
-  {
-    icon: LineChart,
-    title: "Analytics Setup",
-    description: "Advanced reporting and analytics configuration for better insights."
+    title: "Сопровождение CRM — чтобы система работала на вас, а не наоборот",
+    description: [
+      {
+        title: "Слушаем бизнес",
+        text: "Регулярно обсуждаем, как работает CRM: что тормозит, где теряются заявки, что мешает масштабироваться."
+      },
+      {
+        title: "Укрепляем систему",
+        text: "Добавляем нужное: автоматизации, отчёты, интеграции, формы, права доступа. Оптимизируем всё, что влияет на скорость и деньги."
+      },
+      {
+        title: "Всегда рядом",
+        text: "Оперативная поддержка, понятные доработки, помощь без бюрократии. Ваши продажи растут — потому что CRM жива, здорова и работает как надо."
+      }
+    ]
   }
 ];
