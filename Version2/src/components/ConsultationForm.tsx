@@ -121,23 +121,6 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
                 >
                   Отправить
                 </Button>
-
-                <div className="flex gap-4 mt-6">
-                  <Button
-                    variant="outline"
-                    className="flex-1 border-green-600 text-green-500 hover:bg-green-600/10"
-                  >
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    WhatsApp
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="flex-1 border-blue-400 text-blue-400 hover:bg-blue-400/10"
-                  >
-                    <Phone className="w-4 h-4 mr-2" />
-                    Telegram
-                  </Button>
-                </div>
               </form>
             </motion.div>
           </motion.div>
