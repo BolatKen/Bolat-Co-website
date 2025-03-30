@@ -19,14 +19,19 @@ import { ConsultationForm } from "./../components/ConsultationForm";
 export function IntegrationsPage() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.05,
+    rootMargin: "0px 0px -100px 0px",
+  });
 
   return (
     <div className="pt-24 pb-16">
       <div className="container mx-auto max-w-6xl px-4">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          animate={inView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.5, ease: "easeOut" }} // Быстрее появление
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">

@@ -4,7 +4,7 @@ import { Award, Users, Clock, Globe } from "lucide-react";
 //import { Button } from '@/components/ui/button';
 
 export function AboutPage() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
     <div className="pt-24 pb-16">

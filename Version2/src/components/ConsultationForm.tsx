@@ -66,6 +66,7 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
 
   return (
     <>
+      {/*
       {!isOpen && (
         <Button
           size="lg"
@@ -75,6 +76,7 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
           Бесплатная консультация
         </Button>
       )}
+        */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

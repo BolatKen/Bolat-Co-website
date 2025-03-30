@@ -17,7 +17,7 @@ import { ConsultationForm } from "./../components/ConsultationForm";
 export function ServicesPage() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
     <div className="pt-24 pb-16">
@@ -46,7 +46,7 @@ export function ServicesPage() {
               ref={ref}
               initial={{ y: 20, opacity: 0 }}
               animate={inView ? { y: 0, opacity: 1 } : {}}
-              transition={{ delay: index * 0.1 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
             >
               <Card className="p-6 bg-gradient-to-br from-gray-900 to-gray-800 border-gray-800 hover:border-blue-500/30 transition-all duration-300 h-full flex flex-col">
                 <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">

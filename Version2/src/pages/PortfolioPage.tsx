@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { Card } from "@/components/ui/card";
 
 export function PortfolioPage() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
     <div className="pt-24 pb-16">

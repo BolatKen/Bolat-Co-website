@@ -25,19 +25,19 @@ export function HomePage() {
 
   const [heroRef, heroInView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
   });
   const [featuresRef, featuresInView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
   });
   const [statsRef, statsInView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
   });
   const [pricingRef, pricingInView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
   });
 
   const trustedLogos = [
@@ -255,6 +255,13 @@ export function HomePage() {
             ))}
           </div>
         </div>
+        <Button
+          size="lg"
+          className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700"
+          onClick={() => setIsOpen(true)}
+        >
+          Бесплатная консультация
+        </Button>
       </motion.section>
     </div>
   );
