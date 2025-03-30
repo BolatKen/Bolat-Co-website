@@ -126,7 +126,7 @@ export function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="bg-blue-600 hover:bg-blue-700"
+                  className="bg-blue-600 hover:bg-blue-700 hover:text-white"
                 >
                   Посмотреть кейсы <ChevronRight className="ml-3 w-6 h-6" />
                 </Button>
@@ -253,15 +253,15 @@ export function HomePage() {
                 </Card>
               </motion.div>
             ))}
+            <Button
+              size="lg"
+              className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-sm shadow-lg"
+              onClick={() => setIsOpen(true)}
+            >
+              Бесплатная консультация
+            </Button>
           </div>
         </div>
-        <Button
-          size="lg"
-          className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700"
-          onClick={() => setIsOpen(true)}
-        >
-          Бесплатная консультация
-        </Button>
       </motion.section>
     </div>
   );

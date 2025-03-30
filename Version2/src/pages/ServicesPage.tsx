@@ -17,7 +17,10 @@ import { ConsultationForm } from "./../components/ConsultationForm";
 export function ServicesPage() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [
+    ref,
+    //inView
+  ] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
     <div className="pt-24 pb-16">
@@ -45,7 +48,7 @@ export function ServicesPage() {
               key={service.title}
               ref={ref}
               initial={{ y: 20, opacity: 0 }}
-              animate={inView ? { y: 0, opacity: 1 } : {}}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
               <Card className="p-6 bg-gradient-to-br from-gray-900 to-gray-800 border-gray-800 hover:border-blue-500/30 transition-all duration-300 h-full flex flex-col">
@@ -67,7 +70,7 @@ export function ServicesPage() {
                 </ol>
                 <Button
                   variant="outline"
-                  className="w-full border-gray-700 hover:bg-gray-800 hover:text-gray-200 mt-auto"
+                  className="w-full bg-gray-200 border-gray-700 hover:bg-gray-800 hover:text-gray-200 mt-auto"
                   onClick={() => setIsOpen(true)}
                 >
                   Узнать больше

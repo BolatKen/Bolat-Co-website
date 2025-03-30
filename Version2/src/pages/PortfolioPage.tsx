@@ -5,7 +5,10 @@ import { useInView } from "react-intersection-observer";
 import { Card } from "@/components/ui/card";
 
 export function PortfolioPage() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
+  const [
+    ref,
+    //inView
+  ] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
     <div className="pt-24 pb-16">
@@ -33,7 +36,7 @@ export function PortfolioPage() {
               key={study.title}
               ref={ref}
               initial={{ y: 20, opacity: 0 }}
-              animate={inView ? { y: 0, opacity: 1 } : {}}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ delay: index * 0.1 }}
             >
               <Card className="overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border-gray-800 hover:border-blue-500/30 transition-all duration-300">
