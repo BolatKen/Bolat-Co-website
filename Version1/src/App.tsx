@@ -7,6 +7,7 @@ import { ServicesPage } from "@/pages/ServicesPage";
 import { PortfolioPage } from "@/pages/PortfolioPage";
 import { IntegrationsPage } from "@/pages/IntegrationPage";
 import { AboutPage } from "@/pages/AboutPage";
+import { AmoCrm } from "@/pages/AmoCrm";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/integrations" element={<IntegrationsPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
+      <AmoCrm />
       <Footer />
       <ConsultationForm />
     </div>
