@@ -1,8 +1,15 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Bot, Code, Database, LineChart, MessageSquare, Settings } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  Bot,
+  Code,
+  Database,
+  LineChart,
+  MessageSquare,
+  Settings,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export function ServicesPage() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -16,7 +23,7 @@ export function ServicesPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Our{' '}
+            Our{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
               Services
             </span>
@@ -39,9 +46,14 @@ export function ServicesPage() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
                   <service.icon className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-gray-200">
+                  {service.title}
+                </h3>
                 <p className="text-gray-400 mb-4">{service.description}</p>
-                <Button variant="outline" className="w-full border-gray-700 hover:bg-gray-800">
+                <Button
+                  variant="outline"
+                  className="w-full border-gray-700 hover:bg-gray-800"
+                >
                   Learn More
                 </Button>
               </Card>
@@ -57,31 +69,36 @@ const services = [
   {
     icon: Settings,
     title: "CRM Setup & Configuration",
-    description: "Custom AmoCRM setup tailored to your business processes and requirements."
+    description:
+      "Custom AmoCRM setup tailored to your business processes and requirements.",
   },
   {
     icon: Bot,
     title: "Automation Solutions",
-    description: "Streamline your workflow with intelligent automation and business rules."
+    description:
+      "Streamline your workflow with intelligent automation and business rules.",
   },
   {
     icon: Database,
     title: "Data Migration",
-    description: "Seamless transfer of your existing data into AmoCRM without loss."
+    description:
+      "Seamless transfer of your existing data into AmoCRM without loss.",
   },
   {
     icon: Code,
     title: "Custom Integration",
-    description: "Connect AmoCRM with your existing tools and third-party services."
+    description:
+      "Connect AmoCRM with your existing tools and third-party services.",
   },
   {
     icon: MessageSquare,
     title: "Training & Support",
-    description: "Comprehensive training and ongoing support for your team."
+    description: "Comprehensive training and ongoing support for your team.",
   },
   {
     icon: LineChart,
     title: "Analytics Setup",
-    description: "Advanced reporting and analytics configuration for better insights."
-  }
+    description:
+      "Advanced reporting and analytics configuration for better insights.",
+  },
 ];

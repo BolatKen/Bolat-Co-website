@@ -7,8 +7,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import.meta.env.VITE_TELEGRAM_TOKEN;
 
-export function ConsultationForm() {
-  const [isOpen, setIsOpen] = useState(false);
+interface ConsultationFormProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
+  //const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,7 +72,6 @@ export function ConsultationForm() {
       >
         Бесплатная консультация
       </Button>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div

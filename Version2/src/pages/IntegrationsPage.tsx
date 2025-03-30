@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import {
   MessageSquare,
   Mail,
@@ -10,10 +10,10 @@ import {
   Youtube,
   FileText,
   CreditCard,
-  BarChart
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+  BarChart,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export function IntegrationsPage() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -27,7 +27,7 @@ export function IntegrationsPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Powerful{' '}
+            Powerful{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
               Integrations
             </span>
@@ -50,9 +50,14 @@ export function IntegrationsPage() {
                 <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
                   <integration.icon className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{integration.title}</h3>
+                <h3 className="text-xl  text-gray-200 font-semibold mb-2">
+                  {integration.title}
+                </h3>
                 <p className="text-gray-400 mb-4">{integration.description}</p>
-                <Button variant="outline" className="w-full border-gray-700 hover:bg-gray-800">
+                <Button
+                  variant="outline"
+                  className="w-full border-gray-700 hover:bg-gray-800"
+                >
                   Connect
                 </Button>
               </Card>
@@ -68,46 +73,47 @@ const integrations = [
   {
     icon: MessageSquare,
     title: "WhatsApp Business",
-    description: "Connect with customers through WhatsApp messaging."
+    description: "Connect with customers through WhatsApp messaging.",
   },
   {
     icon: Mail,
     title: "Email Services",
-    description: "Integrate with Gmail, Outlook, and other email providers."
+    description: "Integrate with Gmail, Outlook, and other email providers.",
   },
   {
     icon: Phone,
     title: "VoIP Systems",
-    description: "Connect your phone system for call tracking and recording."
+    description: "Connect your phone system for call tracking and recording.",
   },
   {
     icon: Facebook,
     title: "Facebook & Instagram",
-    description: "Manage social media leads and conversations."
+    description: "Manage social media leads and conversations.",
   },
   {
     icon: FileText,
     title: "Document Management",
-    description: "Connect with Google Docs, Dropbox, and other storage services."
+    description:
+      "Connect with Google Docs, Dropbox, and other storage services.",
   },
   {
     icon: CreditCard,
     title: "Payment Systems",
-    description: "Process payments through various payment gateways."
+    description: "Process payments through various payment gateways.",
   },
   {
     icon: BarChart,
     title: "Analytics Tools",
-    description: "Connect with Google Analytics and other tracking tools."
+    description: "Connect with Google Analytics and other tracking tools.",
   },
   {
     icon: Instagram,
     title: "Social Media",
-    description: "Integrate with various social media platforms."
+    description: "Integrate with various social media platforms.",
   },
   {
     icon: Twitter,
     title: "Twitter",
-    description: "Monitor and respond to Twitter interactions."
-  }
+    description: "Monitor and respond to Twitter interactions.",
+  },
 ];
