@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+//import { ArrowRight } from "lucide-react";
+//import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 export function PortfolioPage() {
@@ -16,13 +16,14 @@ export function PortfolioPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            С нами работают бизнесы, которые{' '}
+            С нами работают бизнесы, которые{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
               хотят расти
             </span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Каждый проект — как новый бизнес-пазл. Мы разбираемся, собираем по кусочкам и включаем на максимум. Вот как мы помогли нашим партнёрам:
+            Каждый проект — как новый бизнес-пазл. Мы разбираемся, собираем по
+            кусочкам и включаем на максимум. Вот как мы помогли нашим партнёрам:
           </p>
         </motion.div>
 
@@ -44,11 +45,12 @@ export function PortfolioPage() {
                   />
                 </div>
                 <div className="p-6">
-
                   <h3 className="text-xl text-gray-200 font-semibold mb-2">
                     {study.title}
                   </h3>
-                  <p className="text-gray-400 mb-2 whitespace-pre-line">{study.description}</p>
+                  <p className="text-gray-400 mb-2 whitespace-pre-line">
+                    {study.description}
+                  </p>
                   <div className="text-sm text-gray-400 whitespace-pre-line mb-4">
                     <strong>Что сделали:</strong>
                     <ul className="list-disc list-inside mt-1 space-y-1">
@@ -87,8 +89,8 @@ const caseStudies = [
     steps: [
       "Подключили мессенджеры и соцсети к CRM",
       "Настроили моментальную обработку заказов",
-      "Внедрили понятную аналитику: видно, что продаётся и как быстро доставляется"
-    ]
+      "Внедрили понятную аналитику: видно, что продаётся и как быстро доставляется",
+    ],
   },
   {
     title: "SDU — Университет нового поколения",
@@ -100,8 +102,8 @@ const caseStudies = [
     steps: [
       "Построили удобную воронку для приёма студентов",
       "Интегрировали WhatsApp — общение стало быстрее",
-      "Настроили аналитику по школам, регионам, направлениям"
-    ]
+      "Настроили аналитику по школам, регионам, направлениям",
+    ],
   },
   {
     title: "KazNU MBA",
@@ -114,21 +116,20 @@ const caseStudies = [
     steps: [
       "Внедрили amoCRM с логикой для онлайн и офлайн заявок",
       "Интегрировали сайт, почту и Instagram",
-      "Настроили отчёты для руководства — понятно, откуда клиенты и кто их закрывает"
-    ]
+      "Настроили отчёты для руководства — понятно, откуда клиенты и кто их закрывает",
+    ],
   },
   {
     title: "Chunky — снеки, которые продаются сами (но с CRM ещё лучше)",
     description:
       "Chunky — это не только розничные заказы в Instagram, но и мощный B2B-сегмент: кофейни, дистрибьюторы, партнёры. Мы настроили CRM так, чтобы периодические заказы, напоминания, оплаты и логистика работали сами.",
-    image:
-      "https://imageproxy.wolt.com/assets/6733119d0822135ce77dcdbf",
+    image: "https://imageproxy.wolt.com/assets/6733119d0822135ce77dcdbf",
     tags: ["Manufacturing", "B2B"],
     results: "Повторные заказы от B2B-клиентов выросли на 50%",
     steps: [
       "Внедрили amoCRM под дистрибьюторский формат",
       "Настроили цикличные закупки и авто-напоминания",
-      "Сделали систему, где продукция приходит вовремя, а клиенты заказывают снова и снова"
-    ]
-  }
+      "Сделали систему, где продукция приходит вовремя, а клиенты заказывают снова и снова",
+    ],
+  },
 ];

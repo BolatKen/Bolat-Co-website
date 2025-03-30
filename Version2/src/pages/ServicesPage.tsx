@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   Bot,
-  Code,
+  //Code,
   Database,
-  LineChart,
-  MessageSquare,
+  //LineChart,
+  //MessageSquare,
   Settings,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";

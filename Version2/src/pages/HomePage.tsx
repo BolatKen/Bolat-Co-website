@@ -4,7 +4,7 @@ import {
   ArrowRight,
   BarChart3,
   Bot,
-  CheckCircle,
+  //CheckCircle,
   ChevronRight,
   Globe2,
   LayoutDashboard,
