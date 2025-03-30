@@ -16,13 +16,13 @@ export function AboutPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            About{' '}
+            О компании{' '}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
-              AmoCRM Pro
+              Bolat & Co.
             </span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Your trusted partner in AmoCRM integration and automation
+            Твой надежный партнёр по интеграции amoCRM для ритейла в Казахстане
           </p>
         </motion.div>
 
@@ -35,15 +35,10 @@ export function AboutPage() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+              <h2 className="text-3xl font-bold mb-4">Что нами движет?</h2>
               <p className="text-gray-400 mb-6">
-                We help businesses streamline their sales processes and grow their revenue through
-                expert AmoCRM implementation and automation. Our goal is to make complex technology
-                simple and accessible for everyone.
+                Наша миссия - избавить предпринимателя от хаоса. Вместо потока потерянных лидов ты получаешь чёткую систему: где каждый клиент учтён, каждый менеджер под контролем, а каждый тенге из рекламы - отрабатывает на максимум. 
               </p>
-              <Button className="bg-blue-600 hover:bg-blue-700">
-                Learn More About Us
-              </Button>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, index) => (
@@ -64,36 +59,12 @@ export function AboutPage() {
         </motion.div>
 
         {/* Team Section */}
-        <motion.div
-          ref={ref}
-          initial={{ y: 20, opacity: 0 }}
-          animate={inView ? { y: 0, opacity: 1 } : {}}
-          className="mb-20"
-        >
-          <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ y: 20, opacity: 0 }}
-                animate={inView ? { y: 0, opacity: 1 } : {}}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                <p className="text-gray-400 mb-2">{member.role}</p>
-                <p className="text-sm text-gray-500">{member.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <div>
+              <h2 className="text-3xl font-bold mb-4">Компания Bolat & Co. —</h2>
+              <p className="text-gray-400 mb-6">
+              лицензированный интегратор amoCRM с фокусом на автоматизацию и рост продаж ритейл-бизнесов. Наше ключевое отличие — это глубокая экспертиза в объединении онлайн-каналов (Instagram, WhatsApp, Telegram) и оффлайн-точек в единую мощную CRM-систему. Мы не просто настраиваем CRM — мы перестраиваем подход к продажам. 
+              </p>
+        </div>
       </div>
     </div>
   );
@@ -102,23 +73,23 @@ export function AboutPage() {
 const stats = [
   {
     icon: Users,
-    value: "1000+",
-    label: "Clients Served"
+    value: "50+",
+    label: "Довольных клиентов. От премиальных цветочных бутиков до сетей косметики и охотничьей экипировки — мы внедрили работающие решения по всей стране. Система работает с первой недели."
   },
   {
     icon: Award,
-    value: "50+",
-    label: "Awards Won"
+    value: "35%",
+    label: "Рост продаж в среднем. Это не абстрактные цифры, а результат автоматизации, сегментации клиентов, возврата неактивных покупателей и правильной работы с лояльностью."
   },
   {
     icon: Clock,
-    value: "10+ Years",
-    label: "Experience"
+    value: "3+ Лет",
+    label: "Совокупного опыта. Наша команда — это не просто специалисты, это люди, которые понимают боли бизнеса. Дорогой трафик? Теряющиеся заявки? Менеджеры в отпуске? Мы знаем, как закрывать эти дыры"
   },
   {
     icon: Globe,
     value: "20+",
-    label: "Countries"
+    label: "В нишах по Казахстану, мы адаптируемся под твой бизнес, а не загоняем его в шаблон. Beauty, fashion, услуги, розница, ювелирка, недвижимость — у нас есть кейсы в каждом сегменте."
   }
 ];
 
