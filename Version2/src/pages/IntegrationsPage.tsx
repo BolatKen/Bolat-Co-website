@@ -8,12 +8,17 @@ import {
   Puzzle,
   Gift,
   BarChart,
-  PhoneCall
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+  PhoneCall,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+
+import { useState } from "react";
+import { ConsultationForm } from "./../components/ConsultationForm";
 
 export function IntegrationsPage() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
@@ -25,7 +30,7 @@ export function IntegrationsPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Мощная{' '}
+            Мощная{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
               Интеграция
             </span>
@@ -44,15 +49,24 @@ export function IntegrationsPage() {
               animate={inView ? { y: 0, opacity: 1 } : {}}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="p-6 bg-gradient-to-br from-gray-900 to-gray-800 border-gray-800 hover:border-blue-500/30 transition-all duration-300">
+              <Card className="p-6 bg-gradient-to-br from-gray-900 to-gray-800 border-gray-800 hover:border-blue-500/30 transition-all duration-300 h-full flex flex-col">
                 <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
                   <integration.icon className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">{integration.title}</h3>
-                <p className="text-gray-400 mb-4 whitespace-pre-line">{integration.description}</p>
-                <Button variant="outline" className="w-full border-gray-700 hover:bg-gray-800">
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {integration.title}
+                </h3>
+                <p className="text-gray-400 mb-4 whitespace-pre-line">
+                  {integration.description}
+                </p>
+                <Button
+                  variant="outline"
+                  className="w-full border-gray-700 hover:bg-gray-800 hover:text-gray-200 mt-auto"
+                  onClick={() => setIsOpen(true)}
+                >
                   Подключить
                 </Button>
+                <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
               </Card>
             </motion.div>
           ))}
@@ -65,7 +79,7 @@ export function IntegrationsPage() {
 const integrations = [
   {
     icon: BarChart,
-    title: 'amoCRM — все клиенты под контролем',
+    title: "amoCRM — все клиенты под контролем",
     description: `Зачем нужно:
 Чтобы заявки не терялись, менеджеры не забывали звонить, а продажи шли быстрее.
 
@@ -76,11 +90,11 @@ const integrations = [
 • Можно смотреть, кто сколько продал и где бизнес теряет деньги.
 
 Польза:
-Ты наконец управляешь продажами, а не догоняешь клиентов.`
+Ты наконец управляешь продажами, а не догоняешь клиентов.`,
   },
   {
     icon: MessageSquare,
-    title: 'Wazzup — мессенджеры и соцсети прямо в CRM',
+    title: "Wazzup — мессенджеры и соцсети прямо в CRM",
     description: `Зачем нужно:
 Чтобы переписки с клиентами не терялись в телефонах и все заявки шли в работу.
 
@@ -91,11 +105,11 @@ const integrations = [
 • Можно подключить несколько номеров и разделить клиентов по сотрудникам.
 
 Польза:
-Быстро отвечаешь, не теряешь клиентов, всё под контролем.`
+Быстро отвечаешь, не теряешь клиентов, всё под контролем.`,
   },
   {
     icon: PhoneCall,
-    title: 'onlinePBX — умная телефония',
+    title: "onlinePBX — умная телефония",
     description: `Зачем нужно:
 Чтобы звонки шли через систему и ни один не был пропущен.
 
@@ -106,11 +120,11 @@ const integrations = [
 • Звонки легко распределяются между сотрудниками.
 
 Польза:
-Ты всегда знаешь, как работают менеджеры и куда уходят звонки.`
+Ты всегда знаешь, как работают менеджеры и куда уходят звонки.`,
   },
   {
     icon: Package,
-    title: 'СДЭК — отправка заказов без головной боли',
+    title: "СДЭК — отправка заказов без головной боли",
     description: `Зачем нужно:
 Чтобы быстро отправлять посылки и не заполнять всё вручную.
 
@@ -121,11 +135,11 @@ const integrations = [
 • Видно, где сейчас посылка.
 
 Польза:
-Ты экономишь время, исключаешь ошибки и радуешь клиента быстрой доставкой.`
+Ты экономишь время, исключаешь ошибки и радуешь клиента быстрой доставкой.`,
   },
   {
     icon: Puzzle,
-    title: 'Интеграция с Мой Склад',
+    title: "Интеграция с Мой Склад",
     description: `Зачем нужно:
 Чтобы видеть остатки, движение товаров и всю цепочку продаж.
 
@@ -136,11 +150,11 @@ const integrations = [
 • Всё автоматически синхронизируется с amoCRM.
 
 Польза:
-Ты управляешь товаром и деньгами без путаницы.`
+Ты управляешь товаром и деньгами без путаницы.`,
   },
   {
     icon: Gift,
-    title: 'Персональная программа лояльности',
+    title: "Персональная программа лояльности",
     description: `Зачем нужно:
 Чтобы клиенты возвращались снова и снова.
 
@@ -151,7 +165,6 @@ const integrations = [
 • Увеличение LTV и повторных продаж.
 
 Польза:
-Ты превращаешь клиентов в стабильный доход.`
-  }
+Ты превращаешь клиентов в стабильный доход.`,
+  },
 ];
-

@@ -93,7 +93,9 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
                 <X className="w-5 h-5" />
               </button>
 
-              <h2 className="text-2xl font-bold mb-4">Get Free Consultation</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-200">
+                Get Free Consultation
+              </h2>
               <p className="text-gray-400 mb-6">
                 Fill out the form below and we'll get back to you within 24
                 hours.
