@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { Rocket } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -24,7 +25,7 @@ export function Navigation() {
             <Rocket className="w-8 h-8 text-blue-500" />
             <span className="text-xl font-bold">Bolat & Co.</span>
           </Link>
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <Link to="/services" className="text-gray-300 hover:text-white transition-colors">
               Услуги
             </Link>
@@ -37,9 +38,25 @@ export function Navigation() {
             <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
               О нас
             </Link>
-            <Button variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500/10">
-              Связь с нами
-            </Button>
+
+            {/* WhatsApp Icon */}
+            <a
+              href="https://wa.me/77066370105"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-500 hover:text-green-400 transition-colors"
+              aria-label="WhatsApp"
+            >
+              <FaWhatsapp className="w-5 h-5" />
+            </a>
+
+            {/* Clickable phone number */}
+            <a
+              href="tel:+77066370105"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              +7 (706) 637-0105
+            </a>
           </div>
         </div>
       </div>
