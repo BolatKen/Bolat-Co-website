@@ -3,7 +3,14 @@ import { useInView } from "react-intersection-observer";
 import { Award, Users, Clock, Globe } from "lucide-react";
 //import { Button } from '@/components/ui/button';
 
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+
+import { ConsultationForm } from "./../components/ConsultationForm";
+
 export function AboutPage() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
@@ -71,6 +78,14 @@ export function AboutPage() {
             Telegram) и оффлайн-точек в единую мощную CRM-систему. Мы не просто
             настраиваем CRM — мы перестраиваем подход к продажам.
           </p>
+          <Button
+            size="lg"
+            className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-sm shadow-lg"
+            onClick={() => setIsOpen(true)}
+          >
+            Бесплатная консультация
+          </Button>
+          <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
     </div>

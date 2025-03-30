@@ -3,8 +3,14 @@ import { useInView } from "react-intersection-observer";
 //import { ArrowRight } from "lucide-react";
 //import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+
+import { ConsultationForm } from "./../components/ConsultationForm";
 
 export function PortfolioPage() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const [
     ref,
     //inView
@@ -39,7 +45,7 @@ export function PortfolioPage() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border-gray-800 hover:border-blue-500/30 transition-all duration-300">
+              <Card className="overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border-gray-800 hover:border-blue-500/30 transition-all duration-300 h-full flex flex-col">
                 <div className="aspect-video relative">
                   <img
                     src={study.image}
@@ -47,7 +53,7 @@ export function PortfolioPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl text-gray-200 font-semibold mb-2">
                     {study.title}
                   </h3>
@@ -62,7 +68,7 @@ export function PortfolioPage() {
                       ))}
                     </ul>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mt-auto">
                     <div>
                       <p className="text-sm text-gray-400">Результат:</p>
                       <p className="text-lg font-semibold text-blue-400">
@@ -74,6 +80,15 @@ export function PortfolioPage() {
               </Card>
             </motion.div>
           ))}
+          <Button
+            size="lg"
+            className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-sm shadow-lg"
+            onClick={() => setIsOpen(true)}
+          >
+            Бесплатная консультация
+          </Button>
+
+          <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
     </div>

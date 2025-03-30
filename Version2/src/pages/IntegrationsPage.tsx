@@ -78,6 +78,13 @@ export function IntegrationsPage() {
               </Card>
             </motion.div>
           ))}
+          <Button
+            size="lg"
+            className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-sm shadow-lg"
+            onClick={() => setIsOpen(true)}
+          >
+            Бесплатная консультация
+          </Button>
         </div>
       </div>
     </div>
