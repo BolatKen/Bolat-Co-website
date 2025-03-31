@@ -125,7 +125,7 @@ export function HomePage() {
               <Link to="/portfolio">
                 <Button
                   size="lg"
-                  variant="outline"
+                  //variant="outline"
                   className="bg-blue-600 hover:bg-blue-700 hover:text-white"
                 >
                   Посмотреть кейсы <ChevronRight className="ml-3 w-6 h-6" />
