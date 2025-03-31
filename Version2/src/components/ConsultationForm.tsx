@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+
+import { useEffect } from "react";
+
 import.meta.env.VITE_TELEGRAM_TOKEN;
 
 interface ConsultationFormProps {
@@ -12,6 +15,18 @@ interface ConsultationFormProps {
 }
 
 export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // Блокируем скролл
+    } else {
+      document.body.style.overflow = "auto"; // Восстанавливаем скролл
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // Очистка при размонтировании
+    };
+  }, [isOpen]);
+
   //const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
 
@@ -94,7 +109,7 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-white"
-              > 
+              >
                 <X className="w-5 h-5" />
               </button>
 
