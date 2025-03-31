@@ -94,7 +94,7 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-white"
-              >
+              > 
                 <X className="w-5 h-5" />
               </button>
 
@@ -105,7 +105,7 @@ export function ConsultationForm({ isOpen, setIsOpen }: ConsultationFormProps) {
                 Заполните форму ниже, и мы свяжемся с вами в течение 24 часов.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4 text-white">
                 <Input
                   placeholder="Ваше имя"
                   className="bg-gray-800 border-gray-700"

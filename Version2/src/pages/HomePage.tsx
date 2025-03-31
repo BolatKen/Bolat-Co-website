@@ -4,7 +4,6 @@ import {
   ArrowRight,
   BarChart3,
   Bot,
-  //CheckCircle,
   ChevronRight,
   Globe2,
   LayoutDashboard,
@@ -14,31 +13,17 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-
 import { Link } from "react-router-dom";
-
 import { useState } from "react";
 import { ConsultationForm } from "./../components/ConsultationForm";
 
 export function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [heroRef, heroInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.05,
-  });
-  const [featuresRef, featuresInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.05,
-  });
-  const [statsRef, statsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.05,
-  });
-  const [pricingRef, pricingInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.05,
-  });
+  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.05 });
+  const [featuresRef, featuresInView] = useInView({ triggerOnce: true, threshold: 0.05 });
+  const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.05 });
+  const [pricingRef, pricingInView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   const trustedLogos = [
     "/logos/SDUNEW-Photoroom.png",
@@ -52,8 +37,19 @@ export function HomePage() {
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center pt-16 px-4"
+        className="relative min-h-screen flex items-center justify-center pt-16 px-4 overflow-hidden"
       >
+        {/* Video background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
+        >
+          <source src="https://bolatco.kz/bolatcoamocrm.mp4" type="video/mp4" />
+        </video>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -90,7 +86,7 @@ export function HomePage() {
               transition={{ delay: 0.6 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              Увеличьте продажи с{" "}
+              Увеличьте продажи с{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
                 amoCRM
               </span>
@@ -100,12 +96,9 @@ export function HomePage() {
               initial={{ y: 20, opacity: 0 }}
               animate={heroInView ? { y: 0, opacity: 1 } : {}}
               transition={{ delay: 0.8 }}
-              className="text-xl text-gray-400 max-w-2xl mx-auto mb-12"
+              className="text-xl text-gray-200 max-w-2xl mx-auto mb-12"
             >
-              Пока менеджеры тупят над заявками, твои клиенты уже зависают у
-              конкурентов. <strong>Хватит терять бабки!</strong> Подключай
-              amoCRM, свяжи онлайн с оффлайном и{" "}
-              <strong>начинай возвращать клиентов уже завтра!</strong>
+              Пока менеджеры тупят над заявками, твои клиенты уже зависают у конкурентов. <strong>Хватит терять бабки!</strong> Подключай amoCRM, свяжи онлайн с оффлайном и <strong>начинай возвращать клиентов уже завтра!</strong>
             </motion.p>
 
             <motion.div
@@ -125,7 +118,6 @@ export function HomePage() {
               <Link to="/portfolio">
                 <Button
                   size="lg"
-                  //variant="outline"
                   className="bg-blue-600 hover:bg-blue-700 hover:text-white"
                 >
                   Посмотреть кейсы <ChevronRight className="ml-3 w-6 h-6" />
@@ -136,8 +128,9 @@ export function HomePage() {
         </div>
       </motion.section>
 
-      {/* Features Section */}
-      <motion.section ref={featuresRef} className="py-20 px-4" id="features">
+      {/* Остальная часть сайта... */}
+{/* Features Section */}
+<motion.section ref={featuresRef} className="py-20 px-4" id="features">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
