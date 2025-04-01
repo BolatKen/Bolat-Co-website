@@ -7,6 +7,7 @@ import { ServicesPage } from "@/pages/ServicesPage";
 import { PortfolioPage } from "@/pages/PortfolioPage";
 import { IntegrationsPage } from "@/pages/IntegrationsPage";
 import { AboutPage } from "@/pages/AboutPage";
+import { BlogPage } from "@/pages/BlogPage";
 
 import { useState } from "react";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/integrations" element={<IntegrationsPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/blog" element={<BlogPage />} />
       </Routes>
       <Footer />
       <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />

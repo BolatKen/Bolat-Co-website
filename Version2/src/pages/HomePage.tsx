@@ -20,10 +20,22 @@ import { ConsultationForm } from "./../components/ConsultationForm";
 export function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.05 });
-  const [featuresRef, featuresInView] = useInView({ triggerOnce: true, threshold: 0.05 });
-  const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.05 });
-  const [pricingRef, pricingInView] = useInView({ triggerOnce: true, threshold: 0.05 });
+  const [heroRef, heroInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.05,
+  });
+  const [featuresRef, featuresInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.05,
+  });
+  const [statsRef, statsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.05,
+  });
+  const [pricingRef, pricingInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.05,
+  });
 
   const trustedLogos = [
     "/logos/SDUNEW-Photoroom.png",
@@ -86,7 +98,7 @@ export function HomePage() {
               transition={{ delay: 0.6 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              Увеличьте продажи с{' '}
+              Увеличьте продажи с{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
                 amoCRM
               </span>
@@ -98,7 +110,10 @@ export function HomePage() {
               transition={{ delay: 0.8 }}
               className="text-xl text-gray-200 max-w-2xl mx-auto mb-12"
             >
-              Пока менеджеры тупят над заявками, твои клиенты уже зависают у конкурентов. <strong>Хватит терять бабки!</strong> Подключай amoCRM, свяжи онлайн с оффлайном и <strong>начинай возвращать клиентов уже завтра!</strong>
+              Пока менеджеры тупят над заявками, твои клиенты уже зависают у
+              конкурентов. <strong>Хватит терять бабки!</strong> Подключай
+              amoCRM, свяжи онлайн с оффлайном и{" "}
+              <strong>начинай возвращать клиентов уже завтра!</strong>
             </motion.p>
 
             <motion.div
@@ -129,8 +144,8 @@ export function HomePage() {
       </motion.section>
 
       {/* Остальная часть сайта... */}
-{/* Features Section */}
-<motion.section ref={featuresRef} className="py-20 px-4" id="features">
+      {/* Features Section */}
+      <motion.section ref={featuresRef} className="py-20 px-4" id="features">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -246,15 +261,15 @@ export function HomePage() {
                 </Card>
               </motion.div>
             ))}
-            <Button
-              size="lg"
-              className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-sm shadow-lg"
-              onClick={() => setIsOpen(true)}
-            >
-              Бесплатная консультация
-            </Button>
           </div>
         </div>
+        <Button
+          size="lg"
+          className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-sm shadow-lg"
+          onClick={() => setIsOpen(true)}
+        >
+          Бесплатная консультация
+        </Button>
       </motion.section>
     </div>
   );
