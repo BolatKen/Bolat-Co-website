@@ -9,6 +9,9 @@ import { ConsultationForm } from "../../components/ConsultationForm";
 //for proper date format
 import { formatDate } from "@/components/ui/formatDate";
 
+//for proper article format
+import { formatArticleBody } from "@/components/ui/FormatArticleBody";
+
 export function BlogPostPage() {
   type BlogPost = {
     id: string;
@@ -41,6 +44,8 @@ export function BlogPostPage() {
 
   if (!post) return <div className="text-center pt-24">Загрузка...</div>;
 
+  const { toc, html } = formatArticleBody(post.body);
+
   return (
     <div className="pt-24 pb-16">
       <div className="container mx-auto max-w-4xl px-4">
@@ -58,7 +63,6 @@ export function BlogPostPage() {
           </h1>
           <p className="text-md text-gray-400">{formatDate(post.date)}</p>
         </motion.div>
-
         {/* Изображение */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -72,15 +76,31 @@ export function BlogPostPage() {
             className="w-full h-full object-cover"
           />
         </motion.div>
-
+        {/* Правая часть: Оглавление */}
         {/* Тело статьи */}
+
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800 p-6 rounded-lg text-gray-300 text-lg leading-relaxed whitespace-pre-line break-words overflow-hidden"
+          className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800 p-6 md:p-10 rounded-2xl text-gray-300 text-base md:text-lg leading-relaxed break-words overflow-hidden space-y-8"
         >
-          {post.body}
+          {/* Оглавление */}
+          <div className="p-6 md:p-8 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl shadow-md">
+            <p className="text-white text-2xl font-bold mb-6 tracking-wide">
+              🔎Оглавление
+            </p>
+            <div
+              className="space-y-3"
+              dangerouslySetInnerHTML={{ __html: toc }}
+            />
+          </div>
+
+          {/* Контент статьи */}
+          <div
+            className="prose prose-invert max-w-none"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </motion.div>
 
         {/* Фиксированная кнопка */}
@@ -91,7 +111,6 @@ export function BlogPostPage() {
         >
           Бесплатная консультация
         </Button>
-
         <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </div>

@@ -17,12 +17,14 @@ import ScrollToTop from "@/components/ScrollToTop"; // Импортируем к
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [footerVisible, setFooterVisible] = useState(false);
+
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage footerVisible={footerVisible} />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/integrations" element={<IntegrationsPage />} />
@@ -30,7 +32,8 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
       </Routes>
-      <Footer />
+
+      <Footer onChange={setFooterVisible} />
       <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );

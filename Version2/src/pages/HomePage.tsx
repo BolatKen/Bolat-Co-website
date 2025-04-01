@@ -18,7 +18,11 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ConsultationForm } from "./../components/ConsultationForm";
 
-export function HomePage() {
+type HomeProps = {
+  footerVisible: boolean;
+};
+
+export function HomePage({ footerVisible }: HomeProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const [heroRef, heroInView] = useInView({
@@ -287,7 +291,7 @@ export function HomePage() {
         </Button>*/}
 
         <AnimatePresence>
-          {!isBlockInView && (
+          {!isBlockInView && !footerVisible && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, y: 0 }}
