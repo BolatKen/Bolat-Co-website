@@ -55,6 +55,13 @@ export function Navigation() {
             >
               О нас
             </Link>
+            <Link
+              to="/blog"
+              className="block text-gray-300 hover:text-white"
+              onClick={() => setMenuOpen(false)}
+            >
+              Блог
+            </Link>
             <a
               href="https://wa.me/77066398062"
               target="_blank"
@@ -118,6 +125,15 @@ export function Navigation() {
             >
               О нас
             </Link>
+
+            <Link
+              to="/blog"
+              className="block text-gray-300 hover:text-white"
+              onClick={() => setMenuOpen(false)}
+            >
+              Блог
+            </Link>
+
             <a
               href="https://wa.me/77066398062"
               target="_blank"

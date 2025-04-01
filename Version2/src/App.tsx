@@ -7,7 +7,8 @@ import { ServicesPage } from "@/pages/ServicesPage";
 import { PortfolioPage } from "@/pages/PortfolioPage";
 import { IntegrationsPage } from "@/pages/IntegrationsPage";
 import { AboutPage } from "@/pages/AboutPage";
-import { BlogPage } from "@/pages/BlogPage";
+import { BlogPage } from "@/pages/Blog/BlogPage";
+import { BlogPostPage } from "@/pages/Blog/BlogPostPage";
 
 import { useState } from "react";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/integrations" element={<IntegrationsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
       </Routes>
       <Footer />
       <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />

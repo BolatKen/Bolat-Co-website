@@ -1,11 +1,49 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { CalendarDays, BookOpen, PenTool } from "lucide-react";
+//import { CalendarDays, BookOpen, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { ConsultationForm } from "./../components/ConsultationForm";
+import { ConsultationForm } from "../../components/ConsultationForm";
 
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+//for date
+import { formatDate } from "@/components/ui/formatDate";
 export function BlogPage() {
+  type BlogPost = {
+    id: string;
+    title: string;
+    description: string;
+    slug: string;
+    body: string;
+    date: string;
+    image: string;
+  };
+
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setIsLoading(true);
+        const res = await axios.get<BlogPost[]>(
+          "https://backend-for-bolat-co.onrender.com/articles/"
+        );
+        setPosts(res.data);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
@@ -28,6 +66,11 @@ export function BlogPage() {
             Здесь мы делимся опытом, кейсами и знаниями в мире CRM,
             автоматизации и продаж.
           </p>
+
+          {isLoading && <p className="text-gray-400">Загрузка статей...</p>}
+          {error && <p className="text-red-500">Ошибка: {error}</p>}
+          {!isLoading && posts.length === 0 && <p>Нет статей</p>}
+          <p>Report</p>
         </motion.div>
 
         {/* Blog Posts */}
@@ -54,15 +97,19 @@ export function BlogPage() {
               </div>
 
               <div className="flex items-center gap-3 text-blue-400 mb-2">
-                <post.icon className="w-5 h-5" />
-                <span className="text-sm text-gray-400">{post.date}</span>
+                {/*<post.icon className="w-5 h-5" />*/}
+                <span className="text-sm text-gray-400">
+                  {formatDate(post.date)}
+                </span>
               </div>
               <h3 className="text-2xl font-bold mb-2">{post.title}</h3>
               <p className="text-gray-400 mb-4">{post.description}</p>
               <div className="mt-auto">
-                <Button variant="outline" className="text-black">
-                  Читать подробнее
-                </Button>
+                <Link to={`/blog/${post.slug}`}>
+                  <Button variant="outline" className="text-black">
+                    Читать подробнее
+                  </Button>
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -81,7 +128,7 @@ export function BlogPage() {
     </div>
   );
 }
-
+/*
 const posts = [
   {
     icon: BookOpen,
@@ -111,3 +158,4 @@ const posts = [
       "https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-preview.jpg",
   },
 ];
+*/
