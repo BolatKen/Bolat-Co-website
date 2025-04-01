@@ -1,3 +1,4 @@
+// Импортируем нужные зависимости
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
@@ -34,6 +35,8 @@ export function HomePage() {
 
   return (
     <div>
+      <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
+
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
@@ -114,7 +117,6 @@ export function HomePage() {
               >
                 Бесплатная консультация <ArrowRight className="ml-3 w-6 h-6" />
               </Button>
-              <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
               <Link to="/portfolio">
                 <Button
                   size="lg"
@@ -128,8 +130,8 @@ export function HomePage() {
         </div>
       </motion.section>
 
-      {/* Остальная часть сайта... */}
-{/* Features Section */}
+      {/* Остальные секции — features, stats, pricing и т.д. */}
+      {/* Features Section */}
 <motion.section ref={featuresRef} className="py-20 px-4" id="features">
         <div className="container mx-auto max-w-6xl">
           <motion.div
@@ -264,38 +266,32 @@ const features = [
   {
     icon: BarChart3,
     title: "Аналитика продаж",
-    description:
-      "Каждый клиент на виду, менеджеры под контролем, а ты точно знаешь, куда уходят деньги.",
+    description: "Каждый клиент на виду, менеджеры под контролем, а ты точно знаешь, куда уходят деньги.",
   },
   {
     icon: Bot,
     title: "Умная автоматизация",
-    description:
-      "Автоматический возврат потерянных клиентов, сегментация аудитории и рост среднего чека без головной боли.",
+    description: "Автоматический возврат потерянных клиентов, сегментация аудитории и рост среднего чека без головной боли.",
   },
   {
     icon: Globe2,
     title: "Центр интеграций",
-    description:
-      "Мгновенно подключим amoCRM к Instagram, WhatsApp, Telegram, телефонии и твоим оффлайн-точкам.",
+    description: "Мгновенно подключим amoCRM к Instagram, WhatsApp, Telegram, телефонии и твоим оффлайн-точкам.",
   },
   {
     icon: Users,
     title: "Программа лояльности",
-    description:
-      "Сегментируй и возвращай клиентов бонусами и акциями прямо из amoCRM — больше никакой «текучки» покупателей.",
+    description: "Сегментируй и возвращай клиентов бонусами и акциями прямо из amoCRM — больше никакой «текучки» покупателей.",
   },
   {
     icon: LayoutDashboard,
     title: "Работа в команде",
-    description:
-      "Менеджеры не теряют заявки и видят каждого клиента, а ты контролируешь работу всех точек в одной системе.",
+    description: "Менеджеры не теряют заявки и видят каждого клиента, а ты контролируешь работу всех точек в одной системе.",
   },
   {
     icon: MessageSquare,
     title: "Персональная панель управления",
-    description:
-      "Настрой панель под себя и отслеживай работу магазинов, каналов и эффективность лояльности в реальном времени.",
+    description: "Настрой панель под себя и отслеживай работу магазинов, каналов и эффективность лояльности в реальном времени.",
   },
 ];
 
@@ -309,21 +305,18 @@ const stats = [
 const pricingPlans = [
   {
     title: "Разговор по делу",
-    popular: true,
     features: [
       "Созвонимся или встретимся, обсудим твои процессы и сразу скажем, где теряешь деньги и клиентов.",
     ],
   },
   {
     title: "Все по полочкам",
-    popular: true,
     features: [
       "Быстро готовим и согласовываем понятное техническое задание, чтобы ты видел, как будут расти продажи.",
     ],
   },
   {
     title: "Пора зарабатывать",
-    popular: true,
     features: [
       "Отправляем прозрачное коммерческое предложение и запускаем систему. Клиенты возвращаются, прибыль растёт.",
     ],
