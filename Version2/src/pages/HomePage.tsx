@@ -132,7 +132,7 @@ export function HomePage() {
 
       {/* Остальные секции — features, stats, pricing и т.д. */}
       {/* Features Section */}
-<motion.section ref={featuresRef} className="py-20 px-4" id="features">
+      <motion.section ref={featuresRef} className="py-20 px-4" id="features">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
