@@ -10,7 +10,7 @@ import { ConsultationForm } from "../../components/ConsultationForm";
 import { formatDate } from "@/components/ui/formatDate";
 
 //for proper article format
-import { formatArticleBody } from "@/components/ui/FormatArticleBody";
+import { formatArticleBody } from "@/components/ui/formatArticleBody";
 
 export function BlogPostPage() {
   type BlogPost = {
