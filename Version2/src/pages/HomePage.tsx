@@ -1,5 +1,5 @@
 // Импортируем нужные зависимости
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   ArrowRight,
@@ -38,6 +38,11 @@ export function HomePage() {
     threshold: 0.05,
   });
 
+  const { ref: blockRef, inView: isBlockInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2, // сколько блока должно быть видно
+  });
+
   const trustedLogos = [
     "/logos/SDUNEW-Photoroom.png",
     "/logos/Alfarab.jpg",
@@ -55,15 +60,21 @@ export function HomePage() {
         className="relative min-h-screen flex items-center justify-center pt-16 px-4 overflow-hidden"
       >
         {/* Video background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
-        >
-          <source src="https://bolatco.kz/bolatcoamocrm.mp4" type="video/mp4" />
-        </video>
+
+        <section ref={blockRef}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
+          >
+            <source
+              src="https://bolatco.kz/bolatcoamocrm.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </section>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -123,21 +134,22 @@ export function HomePage() {
               initial={{ y: 20, opacity: 0 }}
               animate={heroInView ? { y: 0, opacity: 1 } : {}}
               transition={{ delay: 1 }}
-              className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-stretch w-full px-4"
             >
               <Button
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto px-6 py-4"
                 onClick={() => setIsOpen(true)}
               >
-                Бесплатная консультация <ArrowRight className="ml-3 w-6 h-6" />
+                Бесплатная консультация{" "}
+                <ArrowRight className="ml-2 w-5 h-5   " />
               </Button>
-              <Link to="/portfolio">
+              <Link to="/portfolio" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 hover:text-white"
+                  className="bg-blue-600 hover:bg-blue-700 hover:text-white w-full sm:w-auto px-6 py-4"
                 >
-                  Посмотреть кейсы <ChevronRight className="ml-3 w-6 h-6" />
+                  Посмотреть кейсы <ChevronRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
             </motion.div>
@@ -265,13 +277,34 @@ export function HomePage() {
             ))}
           </div>
         </div>
+        {/*
         <Button
           size="lg"
           className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-sm shadow-lg"
           onClick={() => setIsOpen(true)}
         >
           Бесплатная консультация
-        </Button>
+        </Button>*/}
+
+        <AnimatePresence>
+          {!isBlockInView && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed bottom-4 right-4 z-50"
+            >
+              <Button
+                size="lg"
+                className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-sm shadow-lg"
+                onClick={() => setIsOpen(true)}
+              >
+                Бесплатная консультация
+              </Button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.section>
     </div>
   );
