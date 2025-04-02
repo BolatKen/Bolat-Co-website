@@ -29,6 +29,27 @@ export function formatArticleBody(bodyStr: string): {
         headings.push({ id, text });
 
         return `<h2 id="${id}" class="text-2xl font-bold text-white my-4 scroll-mt-24">${text}</h2>`;
+      } else if (
+        line.trim().startsWith("https://www.youtube.com/") ||
+        line.trim().startsWith("https://youtube.com/")
+      ) {
+        const url = new URL(line.trim());
+        const videoId = url.searchParams.get("v");
+
+        if (videoId) {
+          return `
+            <iframe
+              width="100%"
+              height="400"
+              src="https://www.youtube.com/embed/${videoId}"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="rounded-lg my-6"
+            ></iframe>
+          `;
+        }
       } else if (line.trim().startsWith("https://")) {
         return `<br><img src="${line}">`;
       } else if (line.trim() == "") {

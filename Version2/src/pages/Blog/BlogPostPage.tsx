@@ -95,7 +95,6 @@ export function BlogPostPage() {
               dangerouslySetInnerHTML={{ __html: toc }}
             />
           </div>
-
           {/* Контент статьи */}
           <div
             className="prose prose-invert max-w-none"
