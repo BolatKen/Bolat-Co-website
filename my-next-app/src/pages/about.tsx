@@ -22,7 +22,7 @@ function App() {
         <Navigation />
         <ScrollToTop />
         <AboutPage />
-        <Footer onChange={setFooterVisible} />
+        <Footer onChange={setFooterVisible} />S
         <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </>

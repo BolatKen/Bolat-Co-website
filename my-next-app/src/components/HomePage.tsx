@@ -26,7 +26,7 @@ type HomeProps = {
 
 export function HomePage({ footerVisible }: HomeProps) {
   //fixing video
-  const blockRef2 = useRef(null);
+  //const blockRef2 = useRef(null);
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);

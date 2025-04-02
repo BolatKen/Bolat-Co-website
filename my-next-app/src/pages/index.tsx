@@ -25,6 +25,7 @@ export default function Home({ data }: { data: any }) {
   );
 }
 
+/*
 export const getServerSideProps: GetServerSideProps = async () => {
   //const res = await fetch("https://api.example.com/home");
   //const data = await res.json();
@@ -38,3 +39,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: { data },
   };
 };
+*/
