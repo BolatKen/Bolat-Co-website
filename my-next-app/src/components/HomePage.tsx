@@ -15,16 +15,19 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 //import { Link } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { ConsultationForm } from "./../components/ConsultationForm";
 
 import Link from "next/link";
 
+/*
 type HomeProps = {
   footerVisible: boolean;
 };
+*/
 
-export function HomePage({ footerVisible }: HomeProps) {
+export function HomePage() {
+//{ footerVisible }: HomeProps
   //fixing video
   //const blockRef2 = useRef(null);
   const [isClient, setIsClient] = useState(false);
@@ -302,7 +305,8 @@ export function HomePage({ footerVisible }: HomeProps) {
         </Button>*/}
 
         <AnimatePresence>
-          {!isBlockInView && !footerVisible && (
+          {!isBlockInView && (
+            //&& !footerVisible
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, y: 0 }}

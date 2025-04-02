@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   } catch (error) {
     return {
-      props: { posts: [], error: "Ошибка загрузки статей" },
+      props: { posts: [], error: "Ошибка загрузки статей", name: error },
     };
   }
 };
@@ -49,7 +49,10 @@ export default function BlogPage({
   posts: BlogPost[];
   error?: string;
 }) {
-  const [footerVisible, setFooterVisible] = useState(false);
+  const [
+    //footerVisible,
+    //setFooterVisible,
+  ] = useState(false);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
   const [isOpen, setIsOpen] = useState(false);
 
@@ -139,7 +142,9 @@ export default function BlogPage({
           <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
-      <Footer onChange={setFooterVisible} />
+      <Footer
+      //onChange={setFooterVisible}
+      />
     </>
   );
 }

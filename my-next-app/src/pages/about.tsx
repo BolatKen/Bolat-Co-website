@@ -10,7 +10,7 @@ import { AboutPage } from "@/components/AboutPage";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [footerVisible, setFooterVisible] = useState(false);
+  //const [footerVisible, setFooterVisible] = useState(false);
 
   return (
     <>
@@ -22,7 +22,9 @@ function App() {
         <Navigation />
         <ScrollToTop />
         <AboutPage />
-        <Footer onChange={setFooterVisible} />S
+        <Footer
+        //onChange={setFooterVisible}
+        />
         <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </>

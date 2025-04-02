@@ -64,7 +64,7 @@ export default function BlogPostPage({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [footerVisible, setFooterVisible] = useState(false);
+  //const [footerVisible, setFooterVisible] = useState(false);
   return (
     <>
       <div className="pt-24 pb-16">
@@ -136,7 +136,9 @@ export default function BlogPostPage({
           <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
-      <Footer onChange={setFooterVisible} />
+      <Footer
+      //onChange={setFooterVisible}
+      />
     </>
   );
 }

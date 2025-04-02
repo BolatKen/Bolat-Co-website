@@ -3,7 +3,7 @@ export function formatArticleBody(bodyStr: string): {
   html: string;
 } {
   const lines = bodyStr.split("\n");
-  let headings: { id: string; text: string }[] = [];
+  const headings: { id: string; text: string }[] = [];
 
   // Вставка текст-ссылок в строки
   const replaceLinks = (text: string): string => {

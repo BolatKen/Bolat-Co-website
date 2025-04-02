@@ -12,7 +12,7 @@ import Head from "next/head";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [footerVisible, setFooterVisible] = useState(false);
+  //const [footerVisible, setFooterVisible] = useState(false);
 
   return (
     <>
@@ -24,7 +24,9 @@ function App() {
         <Navigation />
         <ScrollToTop />
         <IntegrationsPage />
-        <Footer onChange={setFooterVisible} />
+        <Footer
+        //onChange={setFooterVisible}
+        />
         <ConsultationForm isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </>

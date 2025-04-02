@@ -8,24 +8,31 @@ import {
 } from "@/components/ui/tooltip";
 import { FaWhatsapp, FaTelegramPlane, FaInstagram } from "react-icons/fa";
 
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+//import { useInView } from "react-intersection-observer";
+//import { useEffect } from "react";
 
 import Link from "next/link";
 
-export function Footer({ onChange }: { onChange: (visible: boolean) => void }) {
+export function Footer() {
+  //{ onChange }: { onChange: (visible: boolean) => void }
+  /*
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.8, // сколько блока должно быть видно
   });
 
   // Сообщаем родителю при изменении видимости
+  /*
   useEffect(() => {
     onChange(inView);
   }, [inView]);
+  */
 
   return (
-    <footer ref={ref} className="py-12 px-4 border-t border-gray-800">
+    <footer
+      //ref={ref}
+      className="py-12 px-4 border-t border-gray-800"
+    >
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
